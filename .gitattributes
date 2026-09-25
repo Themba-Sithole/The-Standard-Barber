@@ -144,3 +144,6 @@
 *.stl                filter=lfs diff=lfs merge=lfs -text
 *.nc                 filter=lfs diff=lfs merge=lfs -text
 *.mat                filter=lfs diff=lfs merge=lfs -text
+
+# Keep the site logo available to deployments without Git LFS.
+/src/assets/logo.png -filter -diff -merge -text
