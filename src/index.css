@@ -32,6 +32,17 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.28);
+}
+
+h1, h2, h3, h4, h5, h6,
+.heading,
+.font-serif {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35), 0 0 18px rgba(0, 0, 0, 0.12);
+}
+
+p, li, span, a, dd, dt {
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
 }
 
 /* Hide scrollbar while keeping scroll function */
