@@ -1,0 +1,10 @@
+{
+  "description": "Discover and book premium barber services in Cape Town with a seamless online experience, featuring detailed service descriptions and easy appointment scheduling.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

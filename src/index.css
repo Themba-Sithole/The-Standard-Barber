@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  --color-charcoal: #1a1917;
+  --color-charcoal-800: #222120;
+  --color-charcoal-700: #2c2a28;
+  --color-charcoal-600: #3a3835;
+  --color-ivory: #ede8d5;
+  --color-ivory-100: #f5f2ea;
+  --color-ivory-300: #d8d2bc;
+  --color-copper: #b8703a;
+  --color-copper-400: #c9823c;
+  --color-copper-600: #9a5f31;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #1a1917;
+  color: #ede8d5;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbar while keeping scroll function */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #3a3835; border-radius: 3px; }
+
+/* Focus ring styles */
+:focus-visible {
+  outline: 2px solid #b8703a;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Keyframe animations ── */
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scrollPulse {
+  0%, 100% { transform: scaleY(1); opacity: 0.3; }
+  50%       { transform: scaleY(0.4); opacity: 0.8; }
+}
+@keyframes copperDraw {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Hero entrance helpers */
+.hero-line {
+  animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-fade {
+  animation: heroFadeIn 1s ease both;
+}
+
+/* Animated scroll indicator */
+.scroll-line {
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+/* Copper button shimmer on hover */
+.btn-copper {
+  position: relative;
+  overflow: hidden;
+}
+.btn-copper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,255,255,0.12) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.btn-copper:hover::after {
+  opacity: 1;
+  animation: shimmer 0.7s ease forwards;
+}
+
+/* Custom date input styling */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7) sepia(0.5) saturate(2) hue-rotate(10deg);
+  cursor: pointer;
+}
