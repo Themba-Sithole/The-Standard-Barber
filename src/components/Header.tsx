@@ -87,40 +87,43 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden fixed inset-0 top-20 bg-charcoal z-40 flex flex-col">
-          <nav className="flex flex-col items-center justify-center flex-1 gap-8" aria-label="Mobile navigation">
-            {NAV.map((item) =>
-              item.label === 'Book Now' ? (
-                <button
-                  key={item.to}
-                  type="button"
-                  onClick={() => {
-                    setOpen(false);
-                    navigate('/booking');
-                  }}
-                  className="px-6 py-3 bg-copper text-charcoal font-semibold text-sm tracking-[0.2em] uppercase hover:bg-copper-400 transition-colors"
-                >
-                  {item.label}
-                </button>
-              ) : (
-                <NavLink
-                  key={item.to}
-                  to={item.to}
-                  end={item.to === '/'}
-                  onClick={() => setOpen(false)}
-                  className={({ isActive }) =>
-                    `text-2xl font-serif tracking-wide transition-colors ${
-                      isActive ? 'text-copper' : 'text-ivory hover:text-copper'
-                    }`
-                  }
-                >
-                  {item.label}
-                </NavLink>
-              )
-            )}
-          </nav>
-          <div className="px-6 pb-12 text-center text-ivory/40 text-sm">
-            14 Kloof Street, Gardens, Cape Town
+        <div className="md:hidden fixed inset-0 z-40 bg-charcoal/95 backdrop-blur-sm">
+          <div className="mx-auto flex h-full w-full max-w-md flex-col px-6 pt-24 pb-10">
+            <nav className="flex flex-col gap-6 pt-4" aria-label="Mobile navigation">
+              {NAV.map((item) =>
+                item.label === 'Book Now' ? (
+                  <button
+                    key={item.to}
+                    type="button"
+                    onClick={() => {
+                      setOpen(false);
+                      navigate('/booking');
+                    }}
+                    className="mt-2 w-full rounded-none border border-copper/60 bg-copper px-6 py-4 text-left text-sm font-semibold tracking-[0.2em] uppercase text-charcoal hover:bg-copper-400 transition-colors"
+                  >
+                    {item.label}
+                  </button>
+                ) : (
+                  <NavLink
+                    key={item.to}
+                    to={item.to}
+                    end={item.to === '/'}
+                    onClick={() => setOpen(false)}
+                    className={({ isActive }) =>
+                      `text-3xl font-serif leading-tight tracking-wide transition-colors ${
+                        isActive ? 'text-copper' : 'text-ivory hover:text-copper'
+                      }`
+                    }
+                  >
+                    {item.label}
+                  </NavLink>
+                )
+              )}
+            </nav>
+
+            <div className="mt-auto border-t border-charcoal-700 pt-6 text-sm text-ivory/60">
+              14 Kloof Street, Gardens, Cape Town
+            </div>
           </div>
         </div>
       )}
