@@ -90,7 +90,7 @@ export default function Services() {
               onClick={() => book(SERVICES[0].id)}
               className="btn-copper px-8 py-4 bg-copper text-charcoal font-semibold tracking-widest uppercase text-sm hover:bg-copper-400 transition-colors"
             >
-              Book an Appointment
+              Book Now
             </button>
           </div>
         </Reveal>

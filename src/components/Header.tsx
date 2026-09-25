@@ -89,21 +89,35 @@ export default function Header() {
       {open && (
         <div className="md:hidden fixed inset-0 top-20 bg-charcoal z-40 flex flex-col">
           <nav className="flex flex-col items-center justify-center flex-1 gap-8" aria-label="Mobile navigation">
-            {NAV.map((item) => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                end={item.to === '/'}
-                onClick={() => setOpen(false)}
-                className={({ isActive }) =>
-                  `text-2xl font-serif tracking-wide transition-colors ${
-                    isActive ? 'text-copper' : 'text-ivory hover:text-copper'
-                  }`
-                }
-              >
-                {item.label}
-              </NavLink>
-            ))}
+            {NAV.map((item) =>
+              item.label === 'Book Now' ? (
+                <button
+                  key={item.to}
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    navigate('/booking');
+                  }}
+                  className="px-6 py-3 bg-copper text-charcoal font-semibold text-sm tracking-[0.2em] uppercase hover:bg-copper-400 transition-colors"
+                >
+                  {item.label}
+                </button>
+              ) : (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  end={item.to === '/'}
+                  onClick={() => setOpen(false)}
+                  className={({ isActive }) =>
+                    `text-2xl font-serif tracking-wide transition-colors ${
+                      isActive ? 'text-copper' : 'text-ivory hover:text-copper'
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              )
+            )}
           </nav>
           <div className="px-6 pb-12 text-center text-ivory/40 text-sm">
             14 Kloof Street, Gardens, Cape Town

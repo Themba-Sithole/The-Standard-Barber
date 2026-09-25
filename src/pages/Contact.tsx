@@ -100,9 +100,9 @@ export default function Contact() {
         <p className="text-ivory/50 mb-8">Choose your service and barber online — takes two minutes.</p>
         <button
           onClick={() => navigate('/booking')}
-          className="px-8 py-4 bg-copper text-charcoal font-semibold tracking-widest uppercase text-sm hover:bg-copper-400 transition-colors"
+          className="btn-copper px-8 py-4 bg-copper text-charcoal font-semibold tracking-widest uppercase text-sm hover:bg-copper-400 transition-colors"
         >
-          Book an Appointment
+          Book Now
         </button>
       </section>
     </div>

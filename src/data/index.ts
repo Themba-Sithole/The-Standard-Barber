@@ -19,6 +19,22 @@ export interface Barber {
 
 export const SERVICES: Service[] = [
   {
+    id: 'beard-trim',
+    name: 'Beard Trim',
+    price: 150,
+    duration: 30,
+    description: 'Shape, define, and detail with a straight-razor line-up.',
+    detail: 'We shape your beard to suit your face, trim to your preferred length, and finish with a straight-razor edge and a hot-towel treatment to soften the skin.',
+  },
+  {
+    id: 'kids-cut',
+    name: "Kids' Cut",
+    price: 150,
+    duration: 30,
+    description: 'A confident cut for children under 12. Patient and fun.',
+    detail: 'We make sure small clients feel comfortable before we start. Patient, friendly, and precise — we deliver a proper cut (not just a trim) that parents and kids both love.',
+  },
+  {
     id: 'classic-cut',
     name: 'Classic Cut',
     price: 200,
@@ -35,28 +51,12 @@ export const SERVICES: Service[] = [
     detail: 'Faded to skin at the sides and back, blended up to your chosen length on top. Clean, sharp, and long-lasting. Includes neck shave and hot-towel close.',
   },
   {
-    id: 'beard-trim',
-    name: 'Beard Trim',
-    price: 150,
-    duration: 30,
-    description: 'Shape, define, and detail with a straight-razor line-up.',
-    detail: 'We shape your beard to suit your face, trim to your preferred length, and finish with a straight-razor edge and a hot-towel treatment to soften the skin.',
-  },
-  {
     id: 'cut-beard',
     name: 'Cut & Beard Package',
     price: 350,
     duration: 90,
     description: 'The full experience — cut plus beard, our best value.',
     detail: 'Your choice of cut paired with our full beard service. One sitting, complete transformation. Includes hot-towel treatment at both stages and a complimentary beard oil application.',
-  },
-  {
-    id: 'kids-cut',
-    name: "Kids' Cut",
-    price: 150,
-    duration: 30,
-    description: 'A confident cut for children under 12. Patient and fun.',
-    detail: 'We make sure small clients feel comfortable before we start. Patient, friendly, and precise — we deliver a proper cut (not just a trim) that parents and kids both love.',
   },
 ];
 

@@ -58,7 +58,7 @@ export default function Footer() {
                   { to: '/', label: 'Home' },
                   { to: '/services', label: 'Services' },
                   { to: '/about', label: 'About' },
-                  { to: '/booking', label: 'Book Appointment' },
+                  { to: '/booking', label: 'Book Now' },
                   { to: '/terms', label: 'Terms & Conditions' },
                 ].map((link) => (
                   <li key={link.to}>
