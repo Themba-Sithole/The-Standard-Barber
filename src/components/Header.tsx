@@ -87,8 +87,8 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden fixed inset-0 z-40 bg-charcoal/95 backdrop-blur-sm">
-          <div className="mx-auto flex h-full w-full max-w-md flex-col px-6 pt-24 pb-10">
+        <div className="md:hidden fixed inset-0 z-40 overflow-y-auto bg-charcoal">
+          <div className="mx-auto flex min-h-screen w-full max-w-md flex-col px-6 pt-20 pb-10">
             <nav className="flex flex-col gap-6 pt-4" aria-label="Mobile navigation">
               {NAV.map((item) =>
                 item.label === 'Book Now' ? (
