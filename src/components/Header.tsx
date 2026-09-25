@@ -89,6 +89,17 @@ export default function Header() {
       {open && (
         <div className="md:hidden fixed inset-0 z-40 overflow-y-auto bg-charcoal">
           <div className="mx-auto flex min-h-screen w-full max-w-md flex-col px-6 pt-20 pb-10">
+            <div className="flex justify-end">
+              <button
+                type="button"
+                aria-label="Close menu"
+                onClick={() => setOpen(false)}
+                className="flex h-12 w-12 items-center justify-center border border-copper/60 bg-charcoal text-2xl text-ivory transition-colors hover:border-copper hover:text-copper"
+              >
+                ×
+              </button>
+            </div>
+
             <nav className="flex flex-col gap-6 pt-4" aria-label="Mobile navigation">
               {NAV.map((item) =>
                 item.label === 'Book Now' ? (
