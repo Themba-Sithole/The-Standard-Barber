@@ -33,13 +33,13 @@ export default function Header() {
         scrolled ? 'bg-charcoal/95 backdrop-blur-sm border-b border-charcoal-700' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20">
         {/* Logo */}
         <Link to="/" className="flex items-center" aria-label="The Standard Barber Co. — Home">
           <img
             src={logoSrc}
             alt="The Standard Barber Co."
-            className="h-10 w-auto"
+            className="h-8 sm:h-10 w-auto"
             style={{ mixBlendMode: 'screen' }}
           />
         </Link>

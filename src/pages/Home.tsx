@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <div>
       {/* ── Hero ── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-charcoal-800">
+      <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden bg-charcoal-800">
         <img
           src={HERO_PHOTO}
           alt="Barber at work at The Standard Barber Co."
@@ -63,14 +63,14 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent" />
 
-        <div className="relative text-center px-6 max-w-3xl mx-auto pt-32 pb-24">
+        <div className="relative text-center px-4 sm:px-6 max-w-3xl mx-auto pt-24 sm:pt-32 pb-16 sm:pb-24">
           <p
-            className="text-copper text-xs tracking-[0.3em] uppercase mb-6 hero-line"
+            className="text-copper text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6 hero-line"
             style={{ animationDelay: '0.1s' }}
           >
             Established in Cape Town
           </p>
-          <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl text-ivory leading-none mb-6">
+          <h1 className="font-serif text-[3.2rem] leading-[0.9] sm:text-6xl md:text-8xl text-ivory mb-6">
             <span
               className="block hero-line"
               style={{ animationDelay: '0.25s' }}
@@ -85,7 +85,7 @@ export default function Home() {
             </em>
           </h1>
           <p
-            className="text-ivory/60 text-lg leading-relaxed max-w-xl mx-auto mb-12 hero-line"
+            className="text-ivory/60 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-10 sm:mb-12 hero-line"
             style={{ animationDelay: '0.6s' }}
           >
             A premium barbershop at the heart of the City Bowl. Precise cuts, honest conversation, and a cold drink waiting for you.
@@ -96,13 +96,13 @@ export default function Home() {
           >
             <button
               onClick={() => navigate('/booking')}
-              className="btn-copper px-8 py-4 bg-copper text-charcoal font-semibold tracking-widest uppercase text-sm hover:bg-copper-400 transition-colors"
+              className="btn-copper w-full sm:w-auto px-8 py-4 bg-copper text-charcoal font-semibold tracking-widest uppercase text-sm hover:bg-copper-400 transition-colors"
             >
               Book Now
             </button>
             <button
               onClick={() => navigate('/services')}
-              className="px-8 py-4 border border-ivory/30 text-ivory text-sm tracking-widest uppercase hover:border-ivory/60 transition-colors"
+              className="w-full sm:w-auto px-8 py-4 border border-ivory/30 text-ivory text-sm tracking-widest uppercase hover:border-ivory/60 transition-colors"
             >
               View Services
             </button>
