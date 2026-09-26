@@ -14,6 +14,7 @@
   --color-ivory-100: #f5f2ea;
   --color-ivory-300: #d8d2bc;
   --color-copper: #b8703a;
+  --color-copper-light: #e2a16d;
   --color-copper-400: #c9823c;
   --color-copper-600: #9a5f31;
 }
@@ -24,6 +25,8 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -32,17 +35,17 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.28);
+  text-shadow: none;
 }
 
 h1, h2, h3, h4, h5, h6,
 .heading,
 .font-serif {
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35), 0 0 18px rgba(0, 0, 0, 0.12);
+  text-shadow: none;
 }
 
 p, li, span, a, dd, dt {
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
+  text-shadow: none;
 }
 
 /* Hide scrollbar while keeping scroll function */
@@ -137,6 +140,7 @@ dialog::backdrop { background: rgb(26 25 23 / 85%); }
   margin: 0;
   width: 100%;
   max-width: none;
+  height: 100vh;
   height: 100dvh;
   max-height: none;
   overflow-y: auto;
@@ -155,4 +159,12 @@ dialog::backdrop { background: rgb(26 25 23 / 85%); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .reveal, .page-transition { opacity: 1 !important; transform: none !important; }
+}
+
+/* Let text and media shrink inside narrow cards and grid tracks. */
+main { min-width: 0; }
+img { max-width: 100%; }
+h1, h2, h3, p, dd { overflow-wrap: break-word; }
+@media (max-width: 767px) {
+  .reveal { transform: none !important; }
 }

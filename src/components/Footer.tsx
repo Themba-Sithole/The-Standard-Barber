@@ -17,19 +17,19 @@ export default function Footer() {
               className="h-12 w-auto mb-4"
               style={{ mixBlendMode: 'screen' }}
             />
-            <p className="text-ivory/50 text-sm leading-relaxed">
+            <p className="text-ivory/80 text-sm leading-relaxed">
               Premium barbering in the heart of Cape Town's City Bowl.
             </p>
           </div>
 
           {/* Hours */}
           <div>
-            <h3 className="text-copper text-xs tracking-widest uppercase mb-5">Hours</h3>
+            <h3 className="text-copper-light text-xs tracking-widest uppercase mb-5">Hours</h3>
             <dl className="space-y-2">
               {HOURS.map((h) => (
                 <div key={h.day} className="flex flex-col">
-                  <dt className="text-ivory/50 text-xs uppercase tracking-wide">{h.day}</dt>
-                  <dd className={`text-sm ${h.open ? 'text-ivory' : 'text-ivory/30'}`}>{h.hours}</dd>
+                  <dt className="text-ivory/80 text-xs uppercase tracking-wide">{h.day}</dt>
+                  <dd className={`text-sm ${h.open ? 'text-ivory' : 'text-ivory/80'}`}>{h.hours}</dd>
                 </div>
               ))}
             </dl>
@@ -37,13 +37,13 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-copper text-xs tracking-widest uppercase mb-5">Contact</h3>
+            <h3 className="text-copper-light text-xs tracking-widest uppercase mb-5">Contact</h3>
             <address className="not-italic space-y-3">
-              <p className="text-ivory/70 text-sm leading-relaxed">{CONTACT.address}</p>
-              <a href={`tel:${CONTACT.phone}`} className="block text-ivory/70 text-sm hover:text-copper transition-colors">
+              <p className="text-ivory/80 text-sm leading-relaxed">{CONTACT.address}</p>
+              <a href={`tel:${CONTACT.phone}`} className="block text-ivory/80 text-sm hover:text-copper-light transition-colors">
                 {CONTACT.phone}
               </a>
-              <a href={`mailto:${CONTACT.email}`} className="block text-ivory/70 text-sm hover:text-copper transition-colors break-all">
+              <a href={`mailto:${CONTACT.email}`} className="block text-ivory/80 text-sm hover:text-copper-light transition-colors break-all">
                 {CONTACT.email}
               </a>
             </address>
@@ -51,7 +51,7 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h3 className="text-copper text-xs tracking-widest uppercase mb-5">Navigation</h3>
+            <h3 className="text-copper-light text-xs tracking-widest uppercase mb-5">Navigation</h3>
             <nav aria-label="Footer navigation">
               <ul className="space-y-3">
                 {[
@@ -64,7 +64,7 @@ export default function Footer() {
                   <li key={link.to}>
                     <Link
                       to={link.to}
-                      className="text-ivory/60 text-sm hover:text-copper transition-colors"
+                      className="text-ivory/80 text-sm hover:text-copper-light transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -75,10 +75,10 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-charcoal-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-ivory/30 text-xs">
+        <div className="border-t border-charcoal-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-ivory/80 text-xs">
           <p>© {year} The Standard Barber Co. All rights reserved.</p>
           <div className="flex gap-6">
-            <Link to="/terms" className="hover:text-copper transition-colors">Terms & Conditions</Link>
+            <Link to="/terms" className="hover:text-copper-light transition-colors">Terms & Conditions</Link>
           </div>
         </div>
       </div>

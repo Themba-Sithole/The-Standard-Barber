@@ -2,14 +2,14 @@ export default function Terms() {
   return (
     <div className="min-h-screen pt-40 pb-24 px-6">
       <div className="max-w-3xl mx-auto">
-        <p className="text-copper text-xs tracking-widest uppercase mb-4">Legal</p>
+        <p className="text-copper-light text-xs tracking-widest uppercase mb-4">Legal</p>
         <h1 className="font-serif text-4xl md:text-5xl text-ivory mb-4">Terms & Conditions</h1>
-        <p className="text-ivory/40 text-sm mb-16">Effective date: 1 January 2024 · The Standard Barber Co., 14 Kloof Street, Gardens, Cape Town, 8001</p>
+        <p className="text-ivory/80 text-sm mb-16">Effective date: 1 January 2024 · The Standard Barber Co., 14 Kloof Street, Gardens, Cape Town, 8001</p>
 
         <div className="prose-custom space-y-12">
           <Section title="1. Booking & Appointments">
             <p>
-              Appointments at The Standard Barber Co. ("The Standard", "we", "us") may be made via our website, by phone at +27 21 424 5678, or by email at <a href="mailto:hello@thestandardbarberco.co.za" className="text-copper hover:underline">hello@thestandardbarberco.co.za</a>. All appointments are subject to availability and are not confirmed until you receive a written or electronic confirmation from us.
+              Appointments at The Standard Barber Co. ("The Standard", "we", "us") may be made via our website, by phone at +27 21 424 5678, or by email at <a href="mailto:hello@thestandardbarberco.co.za" className="text-copper-light hover:underline">hello@thestandardbarberco.co.za</a>. All appointments are subject to availability and are not confirmed until you receive a written or electronic confirmation from us.
             </p>
             <p>
               We reserve the right to decline or cancel a booking at our discretion, in which case any deposit paid will be refunded in full within 5 business days.
@@ -103,13 +103,13 @@ export default function Terms() {
             <p>
               For questions about these terms, please contact us:
             </p>
-            <address className="not-italic text-ivory/60">
+            <address className="not-italic text-ivory/80">
               The Standard Barber Co.<br />
               14 Kloof Street, Gardens<br />
               Cape Town, 8001<br />
               South Africa<br />
-              <a href="tel:+27214245678" className="text-copper hover:underline">+27 21 424 5678</a><br />
-              <a href="mailto:hello@thestandardbarberco.co.za" className="text-copper hover:underline">hello@thestandardbarberco.co.za</a>
+              <a href="tel:+27214245678" className="text-copper-light hover:underline">+27 21 424 5678</a><br />
+              <a href="mailto:hello@thestandardbarberco.co.za" className="text-copper-light hover:underline">hello@thestandardbarberco.co.za</a>
             </address>
           </Section>
         </div>
@@ -122,7 +122,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   return (
     <section>
       <h2 className="font-serif text-2xl text-ivory mb-5 pb-4 border-b border-charcoal-700">{title}</h2>
-      <div className="space-y-4 text-ivory/60 text-sm leading-relaxed [&_ul]:space-y-2 [&_ul]:pl-4 [&_li]:text-ivory/60">
+      <div className="space-y-4 text-ivory/80 text-sm leading-relaxed [&_ul]:space-y-2 [&_ul]:pl-4 [&_li]:text-ivory/80">
         {children}
       </div>
     </section>

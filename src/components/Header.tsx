@@ -13,16 +13,9 @@ const NAV = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => { setOpen(false); }, [pathname]);
 
@@ -35,9 +28,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-        scrolled || pathname !== '/' ? 'bg-charcoal/95 backdrop-blur-sm border-b border-charcoal-700' : 'bg-transparent'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-charcoal border-b border-charcoal-700"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20">
         {/* Logo */}
@@ -67,8 +58,8 @@ export default function Header() {
                 to={item.to}
                 end={item.to === '/'}
                 className={({ isActive }) =>
-                  `text-sm tracking-widest uppercase transition-colors ${
-                    isActive ? 'text-copper' : 'text-ivory/70 hover:text-ivory'
+                  `text-sm font-medium tracking-widest uppercase transition-colors ${
+                    isActive ? 'text-copper-light' : 'text-ivory/80 hover:text-ivory'
                   }`
                 }
               >
@@ -101,7 +92,7 @@ export default function Header() {
                 type="button"
                 aria-label="Close menu"
                 onClick={() => setOpen(false)}
-                className="flex h-12 w-12 items-center justify-center border border-copper/60 bg-charcoal text-2xl text-ivory transition-colors hover:border-copper hover:text-copper"
+                className="flex h-12 w-12 items-center justify-center border border-copper/60 bg-charcoal text-2xl text-ivory transition-colors hover:border-copper hover:text-copper-light"
               >
                 ×
               </button>
@@ -129,7 +120,7 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
                       `block py-3 text-3xl font-serif leading-tight tracking-wide transition-colors ${
-                        isActive ? 'text-copper' : 'text-ivory hover:text-copper'
+                        isActive ? 'text-copper-light' : 'text-ivory hover:text-copper-light'
                       }`
                     }
                   >
@@ -139,7 +130,7 @@ export default function Header() {
               )}
             </nav>
 
-            <div className="mt-auto border-t border-charcoal-700 pt-6 text-sm text-ivory/60">
+            <div className="mt-auto border-t border-charcoal-700 pt-6 text-sm text-ivory/80">
               14 Kloof Street, Gardens, Cape Town
             </div>
           </div>

@@ -40,7 +40,7 @@ export default function WelcomeModal() {
         {/* Close */}
         <button
           onClick={dismiss}
-          className="absolute top-2 right-2 flex h-11 w-11 items-center justify-center text-ivory/40 hover:text-ivory transition-colors"
+          className="absolute top-2 right-2 flex h-11 w-11 items-center justify-center text-ivory/80 hover:text-ivory transition-colors"
           aria-label="Close offer"
         >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -58,15 +58,15 @@ export default function WelcomeModal() {
           </svg>
         </div>
 
-        <p className="text-copper text-xs tracking-widest uppercase mb-3">First Visit Offer</p>
+        <p className="text-copper-light text-xs tracking-widest uppercase mb-3">First Visit Offer</p>
         <h2 id="modal-title" className="font-serif text-3xl text-ivory mb-4">
           10% Off Your First Cut
         </h2>
-        <p className="text-ivory/60 text-sm leading-relaxed mb-2">
+        <p className="text-ivory/80 text-sm leading-relaxed mb-2">
           New to The Standard? Welcome. Your first appointment comes with 10% off any service — no strings attached.
         </p>
-        <p className="text-ivory/40 text-xs mb-8">
-          Use code <span className="text-copper font-semibold tracking-widest">FIRST10</span> when booking online.
+        <p className="text-ivory/80 text-xs mb-8">
+          Use code <span className="text-copper-light font-semibold tracking-widest">FIRST10</span> when booking online.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3">
@@ -78,13 +78,13 @@ export default function WelcomeModal() {
           </button>
           <button
             onClick={dismiss}
-            className="flex-1 px-6 py-3 border border-charcoal-600 text-ivory/60 text-sm tracking-wide uppercase hover:text-ivory hover:border-ivory/30 transition-colors"
+            className="flex-1 px-6 py-3 border border-charcoal-600 text-ivory/80 text-sm tracking-wide uppercase hover:text-ivory hover:border-ivory/30 transition-colors"
           >
             Maybe Later
           </button>
         </div>
 
-        <p className="mt-6 text-ivory/25 text-xs">Valid for first-time clients only. Cannot be combined with other offers.</p>
+        <p className="mt-6 text-ivory/80 text-xs">Valid for first-time clients only. Cannot be combined with other offers.</p>
       </div>
     </Modal>
   );

@@ -65,7 +65,7 @@ export default function Home() {
 
         <div className="relative text-center px-4 sm:px-6 max-w-3xl mx-auto pt-24 sm:pt-32 pb-32 sm:pb-36">
           <p
-            className="text-copper text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6 hero-line"
+            className="text-copper-light text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6 hero-line"
             style={{ animationDelay: '0.1s' }}
           >
             Established in Cape Town
@@ -85,7 +85,7 @@ export default function Home() {
             </em>
           </h1>
           <p
-            className="text-ivory/60 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-10 sm:mb-12 hero-line"
+            className="text-ivory/80 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-10 sm:mb-12 hero-line"
             style={{ animationDelay: '0.6s' }}
           >
             A premium barbershop at the heart of the City Bowl. Precise cuts, honest conversation, and a cold drink waiting for you.
@@ -110,7 +110,7 @@ export default function Home() {
         </div>
 
         {/* Animated scroll cue */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ivory/30 hero-fade" style={{ animationDelay: '1.2s' }}>
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ivory/80 hero-fade" style={{ animationDelay: '1.2s' }}>
           <span className="text-xs tracking-widest uppercase">Scroll</span>
           <div className="w-px h-10 bg-ivory/20 scroll-line" />
         </div>
@@ -120,13 +120,13 @@ export default function Home() {
       <section className="py-24 px-6 max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <Reveal animation="fadeUp">
-            <p className="text-copper text-xs tracking-widest uppercase mb-3">What We Do</p>
+            <p className="text-copper-light text-xs tracking-widest uppercase mb-3">What We Do</p>
             <h2 className="font-serif text-4xl md:text-5xl text-ivory">Our Services</h2>
           </Reveal>
           <Reveal animation="fadeIn" delay={200}>
             <button
               onClick={() => navigate('/services')}
-              className="text-copper text-sm tracking-widest uppercase border-b border-copper/40 hover:border-copper pb-1 transition-colors"
+              className="text-copper-light text-sm tracking-widest uppercase border-b border-copper/40 hover:border-copper pb-1 transition-colors"
             >
               View All Services →
             </button>
@@ -139,14 +139,14 @@ export default function Home() {
               <div className="bg-charcoal-800 p-8 group hover:bg-charcoal-700 transition-colors h-full cursor-default">
                 <div className="flex justify-between items-start gap-4 mb-4">
                   <h3 className="font-serif text-xl text-ivory">{service.name}</h3>
-                  <span className="shrink-0 text-copper font-semibold">{formatPrice(service.price)}</span>
+                  <span className="shrink-0 text-copper-light font-semibold">{formatPrice(service.price)}</span>
                 </div>
-                <p className="text-ivory/50 text-sm leading-relaxed mb-6">{service.description}</p>
+                <p className="text-ivory/80 text-sm leading-relaxed mb-6">{service.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-ivory/30 text-xs tracking-wide">{formatDuration(service.duration)}</span>
+                  <span className="text-ivory/80 text-xs tracking-wide">{formatDuration(service.duration)}</span>
                   <button
                     onClick={() => navigate('/booking', { state: { selectedService: service.id } })}
-                    className="text-copper text-xs tracking-widest uppercase min-h-11 px-2 opacity-100 transition-opacity duration-300"
+                    className="text-copper-light text-xs tracking-widest uppercase min-h-11 px-2 opacity-100 transition-opacity duration-300"
                   >
                     Book →
                   </button>
@@ -161,20 +161,20 @@ export default function Home() {
       <section className="py-24 px-6 bg-charcoal-800">
         <div className="max-w-6xl mx-auto">
           <Reveal animation="fadeUp" className="text-center mb-16">
-            <p className="text-copper text-xs tracking-widest uppercase mb-3">Why The Standard</p>
+            <p className="text-copper-light text-xs tracking-widest uppercase mb-3">Why The Standard</p>
             <h2 className="font-serif text-4xl md:text-5xl text-ivory">Different by design.</h2>
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {REASONS.map((r, i) => (
               <Reveal key={r.title} animation="fadeUp" delay={i * 80} className="text-center">
                 <div
-                  className="text-copper flex justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+                  className="text-copper-light flex justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
                   style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}
                 >
                   {r.icon}
                 </div>
                 <h3 className="text-ivory font-semibold mb-3">{r.title}</h3>
-                <p className="text-ivory/50 text-sm leading-relaxed">{r.desc}</p>
+                <p className="text-ivory/80 text-sm leading-relaxed">{r.desc}</p>
               </Reveal>
             ))}
           </div>
@@ -184,7 +184,7 @@ export default function Home() {
       {/* ── Team intro ── */}
       <section className="py-24 px-6 max-w-6xl mx-auto">
         <Reveal animation="fadeUp" className="text-center mb-16">
-          <p className="text-copper text-xs tracking-widest uppercase mb-3">The Team</p>
+          <p className="text-copper-light text-xs tracking-widest uppercase mb-3">The Team</p>
           <h2 className="font-serif text-4xl md:text-5xl text-ivory">Your barbers.</h2>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -198,9 +198,9 @@ export default function Home() {
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                   />
                 </div>
-                <p className="text-copper text-xs tracking-widest uppercase mb-1">{barber.role}</p>
+                <p className="text-copper-light text-xs tracking-widest uppercase mb-1">{barber.role}</p>
                 <h3 className="font-serif text-xl text-ivory mb-2">{barber.name}</h3>
-                <p className="text-ivory/50 text-sm">{barber.experience} experience · {barber.speciality}</p>
+                <p className="text-ivory/80 text-sm">{barber.experience} experience · {barber.speciality}</p>
               </div>
             </Reveal>
           ))}
@@ -208,7 +208,7 @@ export default function Home() {
         <Reveal animation="fadeIn" delay={200} className="text-center mt-12">
           <button
             onClick={() => navigate('/about')}
-            className="text-copper text-sm tracking-widest uppercase border-b border-copper/40 hover:border-copper pb-1 transition-colors"
+            className="text-copper-light text-sm tracking-widest uppercase border-b border-copper/40 hover:border-copper pb-1 transition-colors"
           >
             Meet the full team →
           </button>
@@ -220,7 +220,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <Reveal animation="fadeLeft">
             <div>
-              <p className="text-copper text-xs tracking-widest uppercase mb-3">Opening Hours</p>
+              <p className="text-copper-light text-xs tracking-widest uppercase mb-3">Opening Hours</p>
               <h2 className="font-serif text-4xl text-ivory mb-10">We're open<br />when you need us.</h2>
               <dl className="space-y-4 mb-10">
                 {HOURS.map((h, i) => (
@@ -232,12 +232,12 @@ export default function Home() {
                       transitionDelay: `${i * 60}ms`,
                     }}
                   >
-                    <dt className="text-ivory/60 text-sm">{h.day}</dt>
-                    <dd className={`text-sm font-medium ${h.open ? 'text-ivory' : 'text-ivory/30'}`}>{h.hours}</dd>
+                    <dt className="text-ivory/80 text-sm">{h.day}</dt>
+                    <dd className={`text-sm font-medium ${h.open ? 'text-ivory' : 'text-ivory/80'}`}>{h.hours}</dd>
                   </div>
                 ))}
               </dl>
-              <p className="text-ivory/40 text-sm mb-8">14 Kloof Street, Gardens, Cape Town, 8001</p>
+              <p className="text-ivory/80 text-sm mb-8">14 Kloof Street, Gardens, Cape Town, 8001</p>
               <button
                 onClick={() => navigate('/booking')}
                 className="btn-copper px-8 py-4 bg-copper text-charcoal font-semibold tracking-widest uppercase text-sm hover:bg-copper-400 transition-colors"
@@ -261,11 +261,11 @@ export default function Home() {
       {/* ── CTA banner ── */}
       <section className="py-24 px-6 text-center">
         <Reveal animation="fadeUp">
-          <p className="text-copper text-xs tracking-widest uppercase mb-4">Ready?</p>
+          <p className="text-copper-light text-xs tracking-widest uppercase mb-4">Ready?</p>
           <h2 className="font-serif text-5xl md:text-6xl text-ivory mb-6">
             Your next cut<br />starts here.
           </h2>
-          <p className="text-ivory/50 mb-10 max-w-md mx-auto">
+          <p className="text-ivory/80 mb-10 max-w-md mx-auto">
             Choose your service, pick your barber, and lock in your time. It takes two minutes.
           </p>
           <button

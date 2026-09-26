@@ -169,7 +169,7 @@ export default function Booking() {
   return (
     <div className="min-h-screen pt-32 pb-24 px-6">
       <div className="max-w-2xl mx-auto">
-        <p className="text-copper text-xs tracking-widest uppercase mb-3">Make an Appointment</p>
+        <p className="text-copper-light text-xs tracking-widest uppercase mb-3">Make an Appointment</p>
         <h1 className="font-serif text-4xl md:text-5xl text-ivory mb-10">Book Your Visit</h1>
 
         {/* Progress bar */}
@@ -179,7 +179,7 @@ export default function Booking() {
               <span
                 key={label}
                 className={`text-[10px] sm:text-xs tracking-normal sm:tracking-wider uppercase transition-colors ${
-                  i + 1 <= step ? 'text-copper' : 'text-ivory/25'
+                  i + 1 <= step ? 'text-copper-light' : 'text-ivory/80'
                 }`}
               >
                 {label}
@@ -262,7 +262,7 @@ export default function Booking() {
               <button
                 onClick={back}
                 disabled={submitting}
-                className="text-ivory/50 text-sm tracking-wide hover:text-ivory transition-colors disabled:opacity-30"
+                className="text-ivory/80 text-sm tracking-wide hover:text-ivory transition-colors disabled:opacity-30"
               >
                 ← Back
               </button>
@@ -282,10 +282,10 @@ export default function Booking() {
         {/* Selection summary */}
         {(form.service || form.barber || form.date) && (
           <div className="mt-6 border border-charcoal-700 p-6 text-sm space-y-3">
-            <p className="text-copper text-xs tracking-widest uppercase mb-4">Your Selection</p>
+            <p className="text-copper-light text-xs tracking-widest uppercase mb-4">Your Selection</p>
             {form.service && (
               <div className="flex justify-between">
-                <span className="text-ivory/50">Service</span>
+                <span className="text-ivory/80">Service</span>
                 <span className="text-ivory">
                   {form.service.name} &middot; {formatPrice(form.service.price)}
                 </span>
@@ -293,19 +293,19 @@ export default function Booking() {
             )}
             {form.barber && (
               <div className="flex justify-between">
-                <span className="text-ivory/50">Barber</span>
+                <span className="text-ivory/80">Barber</span>
                 <span className="text-ivory">{form.barber.name}</span>
               </div>
             )}
             {form.date && (
               <div className="flex justify-between">
-                <span className="text-ivory/50">Date</span>
+                <span className="text-ivory/80">Date</span>
                 <span className="text-ivory">{formatBookingDate(form.date)}</span>
               </div>
             )}
             {form.time && (
               <div className="flex justify-between">
-                <span className="text-ivory/50">Time</span>
+                <span className="text-ivory/80">Time</span>
                 <span className="text-ivory">{formatTime(form.time)}</span>
               </div>
             )}
@@ -347,11 +347,11 @@ function StepService({
             >
               <div className="flex-1">
                 <p className={`font-semibold ${isSelected ? 'text-ivory' : 'text-ivory/80'}`}>{s.name}</p>
-                <p className="text-ivory/40 text-sm mt-1">{s.description}</p>
-                <p className="text-ivory/30 text-xs mt-2">{formatDuration(s.duration)}</p>
+                <p className="text-ivory/80 text-sm mt-1">{s.description}</p>
+                <p className="text-ivory/80 text-xs mt-2">{formatDuration(s.duration)}</p>
               </div>
               <div className="text-right flex-shrink-0">
-                <p className={`font-serif text-xl ${isSelected ? 'text-copper' : 'text-ivory/60'}`}>
+                <p className={`font-serif text-xl ${isSelected ? 'text-copper-light' : 'text-ivory/80'}`}>
                   {formatPrice(s.price)}
                 </p>
                 {isSelected && (
@@ -404,8 +404,8 @@ function StepBarber({
               </div>
               <div className="flex-1 min-w-0">
                 <p className={`font-semibold ${isSelected ? 'text-ivory' : 'text-ivory/80'}`}>{b.name}</p>
-                <p className="text-ivory/40 text-sm">{b.role}</p>
-                <p className="text-ivory/30 text-xs mt-1">{b.speciality}</p>
+                <p className="text-ivory/80 text-sm">{b.role}</p>
+                <p className="text-ivory/80 text-xs mt-1">{b.speciality}</p>
               </div>
               {isSelected && (
                 <div className="w-5 h-5 rounded-full bg-copper flex items-center justify-center flex-shrink-0">
@@ -447,7 +447,7 @@ function StepDateTime({
       <h2 className="font-serif text-2xl text-ivory mb-6">Choose date &amp; time</h2>
 
       <div className="mb-6">
-        <label htmlFor="booking-date" className="block text-sm text-ivory/60 mb-2">
+        <label htmlFor="booking-date" className="block text-sm text-ivory/80 mb-2">
           Date
         </label>
         <input
@@ -474,9 +474,9 @@ function StepDateTime({
 
       {date && !isClosed && (
         <div>
-          <p className="text-sm text-ivory/60 mb-3">Available time slots</p>
+          <p className="text-sm text-ivory/80 mb-3">Available time slots</p>
           {slots.length === 0 ? (
-            <p className="text-ivory/40 text-sm">No slots available for this date.</p>
+            <p className="text-ivory/80 text-sm">No slots available for this date.</p>
           ) : (
             <>
               <div className="grid grid-cols-3 sm:grid-cols-5 gap-2" role="radiogroup" aria-label="Select time">
@@ -491,7 +491,7 @@ function StepDateTime({
                       className={`py-2.5 text-xs text-center border transition-all ${
                         isSelected
                           ? 'border-copper bg-copper text-charcoal font-semibold'
-                          : 'border-charcoal-600 text-ivory/70 hover:border-copper/60 hover:text-ivory'
+                          : 'border-charcoal-600 text-ivory/80 hover:border-copper/60 hover:text-ivory'
                       }`}
                     >
                       {formatTime(slot)}
@@ -525,7 +525,7 @@ function StepDetails({
   return (
     <div>
       <h2 className="font-serif text-2xl text-ivory mb-2">Your details</h2>
-      <p className="text-ivory/40 text-sm mb-8">
+      <p className="text-ivory/80 text-sm mb-8">
         Used solely to manage your appointment request.
       </p>
       <div className="space-y-5">
@@ -582,7 +582,7 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm text-ivory/60 mb-2">
+      <label htmlFor={id} className="block text-sm text-ivory/80 mb-2">
         {label}
       </label>
       <input
@@ -592,7 +592,7 @@ function Field({
         onChange={(e) => onChange(e.target.value)}
         autoComplete={autoComplete}
         placeholder={placeholder}
-        className={`w-full bg-charcoal-700 border text-ivory px-4 py-3 text-sm placeholder:text-ivory/20 focus:outline-none focus:border-copper transition-colors ${
+        className={`w-full bg-charcoal-700 border text-ivory px-4 py-3 text-sm placeholder:text-ivory/80 focus:outline-none focus:border-copper transition-colors ${
           error ? 'border-red-700' : 'border-charcoal-600'
         }`}
         aria-describedby={error ? `${id}-error` : undefined}
@@ -622,13 +622,13 @@ function Confirmation({ booking }: { booking: Booking }) {
         </div>
 
         <div className="text-center mb-10">
-          <p className="text-copper text-xs tracking-widest uppercase mb-3">Request Received</p>
+          <p className="text-copper-light text-xs tracking-widest uppercase mb-3">Request Received</p>
           <h1 className="font-serif text-4xl md:text-5xl text-ivory mb-4">
             Booking request received&mdash;your appointment is awaiting confirmation.
           </h1>
-          <p className="text-ivory/50 text-sm max-w-lg mx-auto">
+          <p className="text-ivory/80 text-sm max-w-lg mx-auto">
             We will be in touch to confirm your slot. For immediate assistance, call us on{' '}
-            <a href="tel:+27214245678" className="text-copper hover:underline">
+            <a href="tel:+27214245678" className="text-copper-light hover:underline">
               +27 21 424 5678
             </a>
             .
@@ -637,7 +637,7 @@ function Confirmation({ booking }: { booking: Booking }) {
 
         {/* Details summary */}
         <div className="bg-charcoal-800 border border-charcoal-700 p-8 mb-8">
-          <p className="text-copper text-xs tracking-widest uppercase mb-6">Submitted Details</p>
+          <p className="text-copper-light text-xs tracking-widest uppercase mb-6">Submitted Details</p>
           <dl className="space-y-4">
             {[
               { label: 'Service', value: booking.service_name },
@@ -655,7 +655,7 @@ function Confirmation({ booking }: { booking: Booking }) {
                 key={label}
                 className="flex justify-between gap-4 text-sm border-b border-charcoal-700 pb-3 last:border-0 last:pb-0"
               >
-                <dt className="text-ivory/40 min-w-[100px] flex-shrink-0">{label}</dt>
+                <dt className="text-ivory/80 min-w-[100px] flex-shrink-0">{label}</dt>
                 <dd className="text-ivory text-right">{value}</dd>
               </div>
             ))}
@@ -663,7 +663,7 @@ function Confirmation({ booking }: { booking: Booking }) {
         </div>
 
         {/* Calendar note */}
-        <p className="text-ivory/40 text-xs text-center mb-4">
+        <p className="text-ivory/80 text-xs text-center mb-4">
           Save this as a tentative calendar event while you wait for confirmation.
         </p>
 
@@ -694,7 +694,7 @@ function Confirmation({ booking }: { booking: Booking }) {
         <div className="text-center">
           <a
             href="/booking"
-            className="text-copper text-sm tracking-widest uppercase border-b border-copper/40 hover:border-copper pb-1 transition-colors"
+            className="text-copper-light text-sm tracking-widest uppercase border-b border-copper/40 hover:border-copper pb-1 transition-colors"
           >
             Make another booking request &rarr;
           </a>

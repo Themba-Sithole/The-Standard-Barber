@@ -12,7 +12,7 @@ export default function About() {
       {/* Header */}
       <section className="pt-40 pb-20 px-6 max-w-6xl mx-auto">
         <Reveal animation="fadeUp">
-          <p className="text-copper text-xs tracking-widest uppercase mb-4">Our Story</p>
+          <p className="text-copper-light text-xs tracking-wide sm:tracking-widest uppercase mb-4">Our Story</p>
           <h1 className="font-serif text-5xl md:text-6xl text-ivory max-w-2xl mb-8">
             Built on craft. Driven by standards.
           </h1>
@@ -23,7 +23,7 @@ export default function About() {
       <section className="px-6 pb-24 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <Reveal animation="fadeLeft">
-            <div className="space-y-6 text-ivory/70 leading-relaxed">
+            <div className="space-y-6 text-ivory/80 leading-relaxed">
               <p>
                 The Standard Barber Co. opened in 2018 on Kloof Street after Sipho Dlamini returned from two years in London, where he sharpened his craft in some of the city's most demanding shops.
               </p>
@@ -54,9 +54,9 @@ export default function About() {
                   { value: '6+', label: 'Years on Kloof' },
                 ].map((s, i) => (
                   <Reveal key={s.label} animation="fadeUp" delay={i * 80}>
-                    <div className="bg-charcoal-800 p-6 text-center">
-                      <p className="font-serif text-3xl text-copper mb-1">{s.value}</p>
-                      <p className="text-ivory/40 text-xs tracking-widest uppercase">{s.label}</p>
+                    <div className="bg-charcoal-800 px-2 py-5 sm:p-6 text-center">
+                      <p className="font-serif text-3xl text-copper-light mb-1">{s.value}</p>
+                      <p className="text-ivory/80 text-xs tracking-wide sm:tracking-widest uppercase">{s.label}</p>
                     </div>
                   </Reveal>
                 ))}
@@ -70,7 +70,7 @@ export default function About() {
       <section className="py-24 bg-charcoal-800 px-6">
         <div className="max-w-6xl mx-auto">
           <Reveal animation="fadeUp">
-            <p className="text-copper text-xs tracking-widest uppercase mb-4">The Team</p>
+            <p className="text-copper-light text-xs tracking-wide sm:tracking-widest uppercase mb-4">The Team</p>
             <h2 className="font-serif text-4xl md:text-5xl text-ivory mb-16">Three barbers.<br />One standard.</h2>
           </Reveal>
 
@@ -78,8 +78,8 @@ export default function About() {
             {BARBERS.map((barber, i) => (
               <div
                 key={barber.id}
-                className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[400px_1fr] gap-10 lg:gap-16 items-start ${
-                  i % 2 === 1 ? 'lg:grid-cols-[1fr_400px]' : ''
+                className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[minmax(0,400px)_minmax(0,1fr)] gap-10 lg:gap-16 items-start ${
+                  i % 2 === 1 ? 'lg:grid-cols-[minmax(0,1fr)_minmax(0,400px)]' : ''
                 }`}
               >
                 <Reveal animation={i % 2 === 1 ? 'fadeRight' : 'fadeLeft'} delay={60} className={i % 2 === 1 ? 'md:order-2' : ''}>
@@ -93,13 +93,13 @@ export default function About() {
                 </Reveal>
                 <Reveal animation={i % 2 === 1 ? 'fadeLeft' : 'fadeRight'} delay={120} className={i % 2 === 1 ? 'md:order-1' : ''}>
                   <div className={`py-4 ${i % 2 === 1 ? 'md:order-1' : ''}`}>
-                    <p className="text-copper text-xs tracking-widest uppercase mb-3">{barber.role}</p>
+                    <p className="text-copper-light text-xs tracking-wide sm:tracking-widest uppercase mb-3">{barber.role}</p>
                     <h3 className="font-serif text-3xl md:text-4xl text-ivory mb-2">{barber.name}</h3>
-                    <p className="text-ivory/40 text-sm mb-8">{barber.experience} in the trade · Specialises in {barber.speciality}</p>
-                    <p className="text-ivory/70 leading-relaxed text-lg">{barber.bio}</p>
+                    <p className="text-ivory/80 text-sm mb-8">{barber.experience} in the trade · Specialises in {barber.speciality}</p>
+                    <p className="text-ivory/80 leading-relaxed text-lg">{barber.bio}</p>
                     <button
                       onClick={() => navigate('/booking', { state: { selectedBarber: barber.id } })}
-                      className="mt-10 px-6 py-3 border border-copper/50 text-copper text-xs tracking-widest uppercase hover:bg-copper hover:text-charcoal transition-all duration-300"
+                      className="mt-10 px-6 py-3 border border-copper/50 text-copper-light text-xs tracking-wide sm:tracking-widest uppercase hover:bg-copper hover:text-charcoal transition-all duration-300"
                     >
                       Book with {barber.name.split(' ')[0]}
                     </button>
@@ -124,8 +124,8 @@ export default function About() {
           ].map((v, i) => (
             <Reveal key={v.title} animation="fadeUp" delay={i * 80}>
               <div className="bg-charcoal-800 p-8 md:p-10 h-full">
-                <h3 className="font-serif text-xl text-copper mb-4">{v.title}</h3>
-                <p className="text-ivory/60 text-sm leading-relaxed">{v.body}</p>
+                <h3 className="font-serif text-xl text-copper-light mb-4">{v.title}</h3>
+                <p className="text-ivory/80 text-sm leading-relaxed">{v.body}</p>
               </div>
             </Reveal>
           ))}
@@ -136,7 +136,7 @@ export default function About() {
       <section className="bg-charcoal-800 py-20 px-6 text-center">
         <Reveal animation="fadeUp">
           <h2 className="font-serif text-4xl text-ivory mb-4">Come and see for yourself.</h2>
-          <p className="text-ivory/50 mb-8 max-w-md mx-auto">14 Kloof Street, Gardens. We're easy to find and even easier to get into once you book.</p>
+          <p className="text-ivory/80 mb-8 max-w-md mx-auto">14 Kloof Street, Gardens. We're easy to find and even easier to get into once you book.</p>
           <button
             onClick={() => navigate('/booking')}
             className="btn-copper px-8 py-4 bg-copper text-charcoal font-semibold tracking-widest uppercase text-sm hover:bg-copper-400 transition-colors"
