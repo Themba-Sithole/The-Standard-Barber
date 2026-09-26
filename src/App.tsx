@@ -30,6 +30,7 @@ function PageTransition({ children }: { children: React.ReactNode }) {
 
   return (
     <div
+      className="page-transition"
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? 'none' : 'translateY(10px)',

@@ -1,3 +1,4 @@
+import Modal from './Modal';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,8 +11,13 @@ export default function WelcomeModal() {
   useEffect(() => {
     const shown = sessionStorage.getItem(STORAGE_KEY);
     if (!shown) {
-      const t = setTimeout(() => setVisible(true), 2000);
-      return () => clearTimeout(t);
+      const t = window.setInterval(() => {
+        if (!document.querySelector('dialog[open]')) {
+          setVisible(true);
+          window.clearInterval(t);
+        }
+      }, 2000);
+      return () => window.clearInterval(t);
     }
   }, []);
 
@@ -28,25 +34,13 @@ export default function WelcomeModal() {
   if (!visible) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-6"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-title"
-    >
-      {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-charcoal/80 backdrop-blur-sm"
-        onClick={dismiss}
-        aria-hidden="true"
-      />
-
+    <Modal label="First visit offer" onClose={dismiss} className="offer-dialog bg-transparent text-ivory">
       {/* Panel */}
-      <div className="relative bg-charcoal-800 border border-charcoal-700 max-w-md w-full p-10 text-center">
+      <div className="relative bg-charcoal-800 border border-charcoal-700 max-w-md w-full p-6 pt-14 sm:p-10 text-center">
         {/* Close */}
         <button
           onClick={dismiss}
-          className="absolute top-4 right-4 text-ivory/40 hover:text-ivory transition-colors"
+          className="absolute top-2 right-2 flex h-11 w-11 items-center justify-center text-ivory/40 hover:text-ivory transition-colors"
           aria-label="Close offer"
         >
           <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -92,6 +86,6 @@ export default function WelcomeModal() {
 
         <p className="mt-6 text-ivory/25 text-xs">Valid for first-time clients only. Cannot be combined with other offers.</p>
       </div>
-    </div>
+    </Modal>
   );
 }

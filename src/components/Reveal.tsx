@@ -62,7 +62,7 @@ export default function Reveal({
   return (
     <div
       ref={ref}
-      className={className}
+      className={`reveal min-w-0 ${className}`}
       style={{
         ...BASE,
         ...(visible ? VISIBLE : HIDDEN[animation]),

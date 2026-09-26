@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom';
+import Modal from './Modal';
 import logoSrc from '../assets/logo.png';
 
 const NAV = [
@@ -14,38 +15,43 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => { setOpen(false); }, [pathname]);
+
   useEffect(() => {
-    if (open) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = '';
-    return () => { document.body.style.overflow = ''; };
-  }, [open]);
+    const desktop = window.matchMedia('(min-width: 768px)');
+    const closeOnDesktop = () => { if (desktop.matches) setOpen(false); };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => desktop.removeEventListener('change', closeOnDesktop);
+  }, []);
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-charcoal/95 backdrop-blur-sm border-b border-charcoal-700' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+        scrolled || pathname !== '/' ? 'bg-charcoal/95 backdrop-blur-sm border-b border-charcoal-700' : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20">
         {/* Logo */}
-        <Link to="/" className="flex items-center" aria-label="The Standard Barber Co. — Home">
+        <Link to="/" className="flex min-w-0 items-center" aria-label="The Standard Barber Co. — Home">
           <img
             src={logoSrc}
             alt="The Standard Barber Co."
-            className="h-8 sm:h-10 w-auto"
+            className="h-8 sm:h-10 w-auto max-w-[min(65vw,240px)] object-contain"
             style={{ mixBlendMode: 'screen' }}
           />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+        <nav className="hidden md:flex items-center gap-4 lg:gap-8" aria-label="Main navigation">
           {NAV.map((item) =>
             item.label === 'Book Now' ? (
               <button
@@ -74,10 +80,11 @@ export default function Header() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden flex flex-col gap-1.5 p-2"
-          onClick={() => setOpen(!open)}
+          className="md:hidden flex h-11 w-11 shrink-0 items-center justify-center flex-col gap-1.5"
+          onClick={() => setOpen((value) => !value)}
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
+          aria-controls={open ? 'mobile-navigation' : undefined}
         >
           <span className={`block w-6 h-px bg-ivory transition-transform duration-200 ${open ? 'rotate-45 translate-y-[9px]' : ''}`} />
           <span className={`block w-6 h-px bg-ivory transition-opacity duration-200 ${open ? 'opacity-0' : ''}`} />
@@ -87,8 +94,8 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden fixed inset-0 z-40 overflow-y-auto bg-charcoal">
-          <div className="mx-auto flex min-h-screen w-full max-w-md flex-col px-6 pt-20 pb-10">
+        <Modal label="Mobile navigation" onClose={() => setOpen(false)} className="mobile-menu bg-charcoal text-ivory">
+          <div className="mx-auto flex min-h-full w-full max-w-md flex-col px-6 py-5">
             <div className="flex justify-end">
               <button
                 type="button"
@@ -100,7 +107,7 @@ export default function Header() {
               </button>
             </div>
 
-            <nav className="flex flex-col gap-6 pt-4" aria-label="Mobile navigation">
+            <nav id="mobile-navigation" className="flex flex-col gap-2 py-6" aria-label="Mobile navigation">
               {NAV.map((item) =>
                 item.label === 'Book Now' ? (
                   <button
@@ -121,7 +128,7 @@ export default function Header() {
                     end={item.to === '/'}
                     onClick={() => setOpen(false)}
                     className={({ isActive }) =>
-                      `text-3xl font-serif leading-tight tracking-wide transition-colors ${
+                      `block py-3 text-3xl font-serif leading-tight tracking-wide transition-colors ${
                         isActive ? 'text-copper' : 'text-ivory hover:text-copper'
                       }`
                     }
@@ -136,7 +143,7 @@ export default function Header() {
               14 Kloof Street, Gardens, Cape Town
             </div>
           </div>
-        </div>
+        </Modal>
       )}
     </header>
   );

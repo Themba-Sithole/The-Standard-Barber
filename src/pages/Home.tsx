@@ -63,14 +63,14 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-transparent" />
 
-        <div className="relative text-center px-4 sm:px-6 max-w-3xl mx-auto pt-24 sm:pt-32 pb-16 sm:pb-24">
+        <div className="relative text-center px-4 sm:px-6 max-w-3xl mx-auto pt-24 sm:pt-32 pb-32 sm:pb-36">
           <p
             className="text-copper text-[10px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase mb-5 sm:mb-6 hero-line"
             style={{ animationDelay: '0.1s' }}
           >
             Established in Cape Town
           </p>
-          <h1 className="font-serif text-[3.2rem] leading-[0.9] sm:text-6xl md:text-8xl text-ivory mb-6">
+          <h1 className="font-serif text-[clamp(2.5rem,10vw,3.2rem)] leading-[0.9] sm:text-6xl md:text-8xl text-ivory mb-6">
             <span
               className="block hero-line"
               style={{ animationDelay: '0.25s' }}
@@ -137,16 +137,16 @@ export default function Home() {
           {SERVICES.slice(0, 3).map((service, i) => (
             <Reveal key={service.id} animation="fadeUp" delay={i * 100}>
               <div className="bg-charcoal-800 p-8 group hover:bg-charcoal-700 transition-colors h-full cursor-default">
-                <div className="flex justify-between items-start mb-4">
+                <div className="flex justify-between items-start gap-4 mb-4">
                   <h3 className="font-serif text-xl text-ivory">{service.name}</h3>
-                  <span className="text-copper font-semibold">{formatPrice(service.price)}</span>
+                  <span className="shrink-0 text-copper font-semibold">{formatPrice(service.price)}</span>
                 </div>
                 <p className="text-ivory/50 text-sm leading-relaxed mb-6">{service.description}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-ivory/30 text-xs tracking-wide">{formatDuration(service.duration)}</span>
                   <button
                     onClick={() => navigate('/booking', { state: { selectedService: service.id } })}
-                    className="text-copper text-xs tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    className="text-copper text-xs tracking-widest uppercase min-h-11 px-2 opacity-100 transition-opacity duration-300"
                   >
                     Book →
                   </button>

@@ -78,11 +78,11 @@ export default function About() {
             {BARBERS.map((barber, i) => (
               <div
                 key={barber.id}
-                className={`grid grid-cols-1 md:grid-cols-[400px_1fr] gap-10 md:gap-16 items-start ${
-                  i % 2 === 1 ? 'md:grid-cols-[1fr_400px]' : ''
+                className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[400px_1fr] gap-10 lg:gap-16 items-start ${
+                  i % 2 === 1 ? 'lg:grid-cols-[1fr_400px]' : ''
                 }`}
               >
-                <Reveal animation={i % 2 === 1 ? 'fadeRight' : 'fadeLeft'} delay={60}>
+                <Reveal animation={i % 2 === 1 ? 'fadeRight' : 'fadeLeft'} delay={60} className={i % 2 === 1 ? 'md:order-2' : ''}>
                   <div className={`aspect-[3/4] overflow-hidden bg-charcoal-700 ${i % 2 === 1 ? 'md:order-2' : ''}`}>
                     <img
                       src={barber.photo}
@@ -91,7 +91,7 @@ export default function About() {
                     />
                   </div>
                 </Reveal>
-                <Reveal animation={i % 2 === 1 ? 'fadeLeft' : 'fadeRight'} delay={120}>
+                <Reveal animation={i % 2 === 1 ? 'fadeLeft' : 'fadeRight'} delay={120} className={i % 2 === 1 ? 'md:order-1' : ''}>
                   <div className={`py-4 ${i % 2 === 1 ? 'md:order-1' : ''}`}>
                     <p className="text-copper text-xs tracking-widest uppercase mb-3">{barber.role}</p>
                     <h3 className="font-serif text-3xl md:text-4xl text-ivory mb-2">{barber.name}</h3>

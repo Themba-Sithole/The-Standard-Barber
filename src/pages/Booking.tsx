@@ -174,11 +174,11 @@ export default function Booking() {
 
         {/* Progress bar */}
         <div className="mb-10">
-          <div className="flex justify-between mb-3">
+          <div className="flex justify-between gap-2 mb-3">
             {STEPS.map((label, i) => (
               <span
                 key={label}
-                className={`text-xs tracking-wider uppercase transition-colors ${
+                className={`text-[10px] sm:text-xs tracking-normal sm:tracking-wider uppercase transition-colors ${
                   i + 1 <= step ? 'text-copper' : 'text-ivory/25'
                 }`}
               >
@@ -192,7 +192,7 @@ export default function Booking() {
         </div>
 
         {/* Step panel */}
-        <div className="bg-charcoal-800 border border-charcoal-700 p-8 md:p-10">
+        <div className="bg-charcoal-800 border border-charcoal-700 p-4 sm:p-8 md:p-10">
           {step === 1 && (
             <StepService
               selected={form.service}
@@ -479,7 +479,7 @@ function StepDateTime({
             <p className="text-ivory/40 text-sm">No slots available for this date.</p>
           ) : (
             <>
-              <div className="grid grid-cols-4 sm:grid-cols-5 gap-2" role="radiogroup" aria-label="Select time">
+              <div className="grid grid-cols-3 sm:grid-cols-5 gap-2" role="radiogroup" aria-label="Select time">
                 {slots.map((slot) => {
                   const isSelected = time === slot;
                   return (
